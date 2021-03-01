@@ -1,13 +1,20 @@
 var mongoose = require('mongoose');  
 
 var UserSchema = new mongoose.Schema({  
-  phno: String,
+  phno: {
+    type: String,
+    required: true,
+    unique: true,
+    maxLength: 12,
+    minLength: 12
+  },
   name: String,
   rollno: String,
-  school: String,
-  address: String
+  school_name: String,
+  address: String,
+  pincode: Number,
+  city: String,
+  state: String
 });
 
-var User = mongoose.model('User', UserSchema);
-
-module.exports = User;
+module.exports = mongoose.model('User', UserSchema);
