@@ -6,8 +6,7 @@ var mongoose = require('mongoose');
 global.__root = __dirname + '/';
 var verifyToken = require('./middleware/verifyToken');
 
-mongoose.connect('mongodb+srv://quiz-app-server:mhbZI3ZuYZ6ddY74@cluster0.vhuil.mongodb.net/quizApp?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
-
+var adminRouter = require('./routes/admin');
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
@@ -15,6 +14,8 @@ var examRouter = require('./routes/exam');
 var questionRouter = require('./routes/question');
 
 var app = express();
+
+mongoose.connect('mongodb+srv://quiz-app-server:mhbZI3ZuYZ6ddY74@cluster0.vhuil.mongodb.net/quizApp?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true });
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routers are set here -----------------
 
 app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/auth', authRouter);
 
 app.use(verifyToken); // Authenticate user before making requests to furthure routes
