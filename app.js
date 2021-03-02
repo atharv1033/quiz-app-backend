@@ -10,7 +10,9 @@ mongoose.connect('mongodb+srv://quiz-app-server:mhbZI3ZuYZ6ddY74@cluster0.vhuil.
 
 var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user');
+var examRouter = require('./routes/exam');
+var questionRouter = require('./routes/question');
 
 var app = express();
 
@@ -19,12 +21,18 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Routers are set here -----------------
+
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 
-app.use(verifyToken);
+app.use(verifyToken); // Authenticate user before making requests to furthure routes
 
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
+app.use('/exam', examRouter);
+app.use('/question', questionRouter);
+
+//---------------------------------------
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

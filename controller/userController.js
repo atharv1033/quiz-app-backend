@@ -1,8 +1,8 @@
 var User = require('../models/User')
 
-let usersController = {};
+var usersController = {};
 
-usersController.getDetails = (req, res) => {
+usersController.getUserDetails = (req, res) => {
     User.findOne({
         _id: req.userId
     },
@@ -27,6 +27,6 @@ usersController.getDetails = (req, res) => {
         });
 
     });
-}
+};
 
 module.exports = usersController;

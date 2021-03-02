@@ -5,6 +5,7 @@ var QuestionSchema = new mongoose.Schema({
         type: String,
         index: true,
     },
+    question_no: Number,
     question: String,
     options: [String],
     correct_ans_index: Number,
