@@ -1,4 +1,0 @@
-mongodbAtlas: {
-    username: quiz-app-server, 
-    password : mhbZI3ZuYZ6ddY74
-}
