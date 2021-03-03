@@ -4,6 +4,7 @@ var QuestionSchema = new mongoose.Schema({
     exam_id: {
         type: String,
         index: true,
+        required: true
     },
     question_no: Number,
     question: String,

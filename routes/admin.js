@@ -13,6 +13,17 @@ let adminBro = new AdminBro({
   resources: [User, Exam, Question, Class],
 });
 
-const router = AdminBroExpress.buildRouter(adminBro)
+const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
+  authenticate: async (username, password) => {
+    if(username === "superuser" && password === "admin@0987") {
+      console.log('here');
+      return true
+    } else {
+      return false
+    }
+  },
+  cookieName: 'adminbro',
+  cookiePassword: 'somePassword',
+});
 
 module.exports = router;
