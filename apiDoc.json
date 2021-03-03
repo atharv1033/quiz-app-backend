@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Sign Up",
+        "url": "http://localhost:5000/auth/signup",
+        "header": {
+            "Content-Type": "application/json"
+        },
+        "type": "POST",
+        "body": {
+            "phno": "<user phone number with 91 at begining, example '917589763452'>"
+        },
+        "response": {
+            "auth": true,
+            "token": "<A JWT token from server>"
+        }
+    },
+    {
+        "name": "Sign In",
+        "url": "http://localhost:5000/auth/signin",
+        "header": {
+            "Content-Type": "application/json"
+        },
+        "type": "POST",
+        "body": {
+            "phno": "<user phone number with 91 at begining, example '917589763452'>"
+        },
+        "response": {
+            "auth": true,
+            "token": "<A JWT token from server>"
+        }
+    },
+    {
+        "name": "User Details",
+        "url": "http://localhost:5000/user/details",
+        "header": {
+            "Content-Type": "application/json",
+            "x-access-token": "<JWT token>"
+        },
+        "type": "GET",
+        "response": {
+            "userFound": true,
+            "userDetails": {
+                "_id": "<id of user>",
+                "phno": "<user phone number>",
+            }
+        }
+    },
+    {
+        "name": "Chapter Wise Exams",
+        "url": "http://localhost:5000/exam/chapterWise?className=<class>",
+        "header": {
+            "Content-Type": "application/json",
+            "x-access-token": "<JWT token>"
+        },
+        "type": "GET",
+        "response": "<Array of chapter wise exams>"
+    },
+    {
+        "name": "Topic Wise Exams",
+        "url": "http://localhost:5000/exam/topicWise?className=<class>",
+        "header": {
+            "Content-Type": "application/json",
+            "x-access-token": "<JWT token>"
+        },
+        "type": "GET",
+        "response": "<Array of topic wise exams>"
+    },
+    {
+        "name": "Main Exams",
+        "url": "http://localhost:5000/exam/main?className=<class>",
+        "header": {
+            "Content-Type": "application/json",
+            "x-access-token": "<JWT token>"
+        },
+        "type": "GET",
+        "response": "<Array of main exams>"
+    }
+    
+    
+]
