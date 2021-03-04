@@ -1,19 +1,32 @@
 var mongoose = require('mongoose');  
 
+var QuestionSchema = new mongoose.Schema({
+  question_no: Number,
+  question: String,
+  options: [String],
+  correct_answer: String
+});
+
 var ExamSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true
   },
-  class_name: {
+  class: {
     type: String,
     enum: ['V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'],
     required: true
   },
-  exam_type: {
+  type: {
     type: String,
     enum: ['topic', 'chapter', 'main'],
     required: true
+  },
+  questions: [QuestionSchema],
+  instructions: [String],
+  negative_marking: {
+    type: Number,
+    default: 0
   },
   start_time: Number,
   end_time: Number,

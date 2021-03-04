@@ -11,7 +11,6 @@ var adminRouter = require('./routes/admin');
 var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 var examRouter = require('./routes/exam');
-var questionRouter = require('./routes/question');
 
 var app = express();
 
@@ -35,7 +34,6 @@ app.use(verifyToken); // Authenticate user before making requests to furthure ro
 
 app.use('/user', userRouter);
 app.use('/exam', examRouter);
-app.use('/question', questionRouter);
 
 //---------------------------------------
 

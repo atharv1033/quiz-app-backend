@@ -3,8 +3,10 @@ var router = express.Router();
 
 var examController = require('../controller/examController');
 
-router.get('/chapterWise', examController.getChapterWiseExams);
-router.get('/topicWise', examController.getTopicWiseExams);
-router.get('/main', examController.getMainExams);
+router.get('/getExams', examController.getExams);
+router.post('/register', examController.registerForExam);
+
+router.get('/question', examController.getQuestion);
+router.post('/answer', examController.setAnswer);
 
 module.exports = router;

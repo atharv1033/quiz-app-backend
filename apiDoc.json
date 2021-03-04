@@ -1,7 +1,7 @@
 [
     {
         "name": "Sign Up",
-        "url": "http://localhost:5000/auth/signup",
+        "url": "https://quiz-app-backend-api.herokuapp.com/auth/signup",
         "header": {
             "Content-Type": "application/json"
         },
@@ -16,7 +16,7 @@
     },
     {
         "name": "Sign In",
-        "url": "http://localhost:5000/auth/signin",
+        "url": "https://quiz-app-backend-api.herokuapp.com/auth/signin",
         "header": {
             "Content-Type": "application/json"
         },
@@ -31,7 +31,7 @@
     },
     {
         "name": "User Details",
-        "url": "http://localhost:5000/user/details",
+        "url": "https://quiz-app-backend-api.herokuapp.com/user/details",
         "header": {
             "Content-Type": "application/json",
             "x-access-token": "<JWT token>"
@@ -46,35 +46,31 @@
         }
     },
     {
-        "name": "Chapter Wise Exams",
-        "url": "http://localhost:5000/exam/chapterWise?className=<class>",
+        "name": "Get Exams Array",
+        "url": "https://quiz-app-backend-api.herokuapp.com/exam/getExams?className=<class>&type=<exam_type>",
         "header": {
             "Content-Type": "application/json",
             "x-access-token": "<JWT token>"
         },
         "type": "GET",
         "response": "<Array of chapter wise exams>"
-    },
-    {
-        "name": "Topic Wise Exams",
-        "url": "http://localhost:5000/exam/topicWise?className=<class>",
-        "header": {
-            "Content-Type": "application/json",
-            "x-access-token": "<JWT token>"
-        },
-        "type": "GET",
-        "response": "<Array of topic wise exams>"
-    },
-    {
-        "name": "Main Exams",
-        "url": "http://localhost:5000/exam/main?className=<class>",
-        "header": {
-            "Content-Type": "application/json",
-            "x-access-token": "<JWT token>"
-        },
-        "type": "GET",
-        "response": "<Array of main exams>"
     }
     
+    {
+        "name": "Register user for a Exam",
+        "url": "https://quiz-app-backend-api.herokuapp.com/exam/register",
+        "header": {
+            "Content-Type": "application/json",
+            "x-access-token": "<JWT token>"
+        },
+        "type": "POST",
+        "body": {
+            "exam_id": "Id of exam"
+        },
+        "response": {
+            "user_registered": true,
+            "message": "User successfully registered for exam"
+        }
+    }
     
 ]
