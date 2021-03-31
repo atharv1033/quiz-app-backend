@@ -8,14 +8,15 @@ let User = require('../models/User');
 let Exam = require('../models/Exam');
 //let Question = require('../models/Question');
 let Class = require('../models/Class');
+let Answersheet = require('../models/Answersheet');
 
 let adminBro = new AdminBro({
-  resources: [User, Exam, Class],
+  resources: [User, Exam, Class, Answersheet],
 });
 
 const router = AdminBroExpress.buildAuthenticatedRouter(adminBro, {
   authenticate: async (username, password) => {
-    if(username === "superuser" && password === "admin@0987") {
+    if(username === "superuser" && password === "") {
       console.log('here');
       return true
     } else {

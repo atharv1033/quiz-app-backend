@@ -5,6 +5,7 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    index: true,
     maxLength: 12,
     minLength: 12
   },

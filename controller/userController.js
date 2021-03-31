@@ -3,7 +3,7 @@ var User = require('../models/User')
 var usersController = {};
 
 usersController.getUserDetails = (req, res) => {
-    User.findOne({
+    User.findById({
         _id: req.userId
     },
     (err, user) => {

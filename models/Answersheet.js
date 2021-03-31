@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');  
 
-var Answers = new mongoose.Schema({
-    quiestion_id: String,
+var AnswersSchema = new mongoose.Schema({
     response: String,
     result: Boolean
 });
@@ -17,7 +16,7 @@ var AnswersheetSchema = new mongoose.Schema({
     index: true,
     required: true
   },
-  Answers: [Answers],
+  answers: [AnswersSchema],
   score: Number,
   last_response: Number
 });

@@ -1,10 +1,11 @@
 var mongoose = require('mongoose');  
 
 var QuestionSchema = new mongoose.Schema({
-  question_no: Number,
   question: String,
   options: [String],
-  correct_answer: String
+  correct_answer: String,
+  points: Number,
+  time_limit: Number //Time limit in seconds
 });
 
 var ExamSchema = new mongoose.Schema({
@@ -24,10 +25,7 @@ var ExamSchema = new mongoose.Schema({
   },
   questions: [QuestionSchema],
   instructions: [String],
-  negative_marking: {
-    type: Number,
-    default: 0
-  },
+  negative_marking: Number,
   start_time: Number,
   end_time: Number,
 });
